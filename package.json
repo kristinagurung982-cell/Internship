@@ -1,0 +1,39 @@
+{
+  "name": "mern-stack(intern)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "migration": "npx typeorm-ts-node-commonjs migration:run -d src/configs/data-source.ts",
+    "revert-migration": "npx typeorm-ts-node-commonjs migration:revert -d src/configs/data-source.ts",
+    "create-migration": " npx typeorm-ts-node-commonjs migration:generate src/migrations/NewMigration -d src/configs/data-source.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.23.2",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.2.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typeorm": "^1.1.0",
+    "typescript": "^5.9.3"
+  }
+}
