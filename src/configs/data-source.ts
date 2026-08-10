@@ -7,8 +7,8 @@ export const AppDataSource = new DataSource({
     type: "mysql",
     host: "localhost",
     port: 3306,
-    username: "saumya",
-    password: "MySQLpassword1",
+    username: "root",
+    password: "Kristina@321",
     database: "mern",
     synchronize: false,
     logging: true,
@@ -16,7 +16,6 @@ export const AppDataSource = new DataSource({
     subscribers: [],      
     migrations: ["src/migrations/*.ts"],
 })
-
 export const initializeDatabase = async () => {
     try{
         await AppDataSource.initialize()
