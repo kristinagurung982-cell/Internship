@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { UserService } from "../service/user.service";
+import { EmailService } from "../service/email.service";
 
 export class UserController {
   static async createUser(req: Request, res: Response) {
@@ -198,5 +199,21 @@ export class UserController {
             }
             return res.status(500).json({message:"internal server error"})
         }
+    }
+
+    static async contactUs(req:Request,res:Response){
+      try{
+        const { name, email,message } = req.body;
+        await EmailService.sendEmail(
+          "kristinatamu0102@gmail.com",
+          `New Contact From Submission from ${name}`,
+          `<p><strong>Email:</strong> ${email}</p><p><strong>Message</strong> ${message}</p>`
+        );
+
+        res.json({ success: true, message: "message sent successfully"});
+      }catch(error){
+        console.log(error)
+        return res.status(500).json({message:error.message});
+      }
     }
 }

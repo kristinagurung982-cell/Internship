@@ -8,6 +8,7 @@ import { createUserSchema } from '../Validations/user.validation';
 const router = Router();
 
 router.post('/user', UserController.createUser);
+router.post('/contactUs', UserController.contactUs);
 router.get('/user', UserController.getUsers);
 router.get('/user/:id', UserController.getUserByID);
 router.delete('/user/:id', UserController.deleteUserByID);
